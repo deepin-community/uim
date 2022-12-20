@@ -1,0 +1,5 @@
+usr/bin/uim-sh
+usr/bin/uim-module-manager
+usr/bin/uim-help
+usr/lib/uim/uim-helper-server
+usr/bin/uim-m17nlib-relink-icons

@@ -1,0 +1,684 @@
+/* src/config.h.in.  Generated from configure.ac by autoheader.  */
+
+#ifndef __SIGSCHEME_CONFIG_H
+#define __SIGSCHEME_CONFIG_H
+
+/* Define if building universal (internal helper macro) */
+#undef AC_APPLE_UNIVERSAL_BUILD
+
+/* The normal alignment of `char', in bytes. */
+#undef ALIGNOF_CHAR
+
+/* The normal alignment of `double', in bytes. */
+#undef ALIGNOF_DOUBLE
+
+/* The normal alignment of `float', in bytes. */
+#undef ALIGNOF_FLOAT
+
+/* The normal alignment of `int', in bytes. */
+#undef ALIGNOF_INT
+
+/* The normal alignment of `int16_t', in bytes. */
+#undef ALIGNOF_INT16_T
+
+/* The normal alignment of `int32_t', in bytes. */
+#undef ALIGNOF_INT32_T
+
+/* The normal alignment of `int64_t', in bytes. */
+#undef ALIGNOF_INT64_T
+
+/* The normal alignment of `int8_t', in bytes. */
+#undef ALIGNOF_INT8_T
+
+/* The normal alignment of `intmax_t', in bytes. */
+#undef ALIGNOF_INTMAX_T
+
+/* The normal alignment of `intptr_t', in bytes. */
+#undef ALIGNOF_INTPTR_T
+
+/* The normal alignment of `long', in bytes. */
+#undef ALIGNOF_LONG
+
+/* The normal alignment of `long double', in bytes. */
+#undef ALIGNOF_LONG_DOUBLE
+
+/* The normal alignment of `long long', in bytes. */
+#undef ALIGNOF_LONG_LONG
+
+/* The normal alignment of `short', in bytes. */
+#undef ALIGNOF_SHORT
+
+/* The normal alignment of `size_t', in bytes. */
+#undef ALIGNOF_SIZE_T
+
+/* The normal alignment of `void *', in bytes. */
+#undef ALIGNOF_VOID_P
+
+/* Define to 1 if the right shift operation is arithmetic. */
+#undef HAVE_ARITHMETIC_RSHIFT
+
+/* Define to 1 if you have the <assert.h> header file. */
+#undef HAVE_ASSERT_H
+
+/* Define to 1 if va_list is an array type. */
+#undef HAVE_AUTOREFERRED_PASSED_VA_LIST
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the `fileno' function. */
+#undef HAVE_FILENO
+
+/* Define to 1 if you have the `getcontext' function. */
+#undef HAVE_GETCONTEXT
+
+/* Define to 1 if you have the `getcwd' function. */
+#undef HAVE_GETCWD
+
+/* Define to 1 if you have the `getpagesize' function. */
+#undef HAVE_GETPAGESIZE
+
+/* Define to 1 if you have the GNU libc. */
+#undef HAVE_GLIBC
+
+/* Define to 1 if the system has the type `intmax_t'. */
+#undef HAVE_INTMAX_T
+
+/* Define to 1 if the system has the type `intptr_t'. */
+#undef HAVE_INTPTR_T
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <limits.h> header file. */
+#undef HAVE_LIMITS_H
+
+/* Define to 1 if the system has the type `long double'. */
+#undef HAVE_LONG_DOUBLE
+
+/* Define to 1 if the type `long double' works and has more range or precision
+   than `double'. */
+#undef HAVE_LONG_DOUBLE_WIDER
+
+/* Define to 1 if the system has the type 'long long int'. */
+#undef HAVE_LONG_LONG_INT
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#undef HAVE_MALLOC_H
+
+/* Define to 1 if you have the `memalign' function. */
+#undef HAVE_MEMALIGN
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define if `malloc'ing more than one page always returns a page-aligned
+   address. */
+#undef HAVE_PAGE_ALIGNED_MALLOC
+
+/* Define to 1 if you have the `posix_memalign' function. */
+#undef HAVE_POSIX_MEMALIGN
+
+/* Define to 1 if f(va_list va){ &va; } works as expected. */
+#undef HAVE_REFERENCEABLE_PASSED_VA_LIST
+
+/* Define to 1 if you have the `sigsetjmp' (and 'siglongjmp') function or
+   macro. */
+#undef HAVE_SIGSETJMP
+
+/* Define to 1 if you have the <stddef.h> header file. */
+#undef HAVE_STDDEF_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the `strcasecmp' function. */
+#undef HAVE_STRCASECMP
+
+/* Define to 1 if you have the `strdup' function. */
+#undef HAVE_STRDUP
+
+/* Define to 1 if cpp supports the ANSI # stringizing operator. */
+#undef HAVE_STRINGIZE
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `strtoimax' function. */
+#undef HAVE_STRTOIMAX
+
+/* Define to 1 if you have the `strtoll' function. */
+#undef HAVE_STRTOLL
+
+/* Define to 1 if you have the <sys/inttypes.h> header file. */
+#undef HAVE_SYS_INTTYPES_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if the system has the type `uintmax_t'. */
+#undef HAVE_UINTMAX_T
+
+/* Define to 1 if the system has the type `uintptr_t'. */
+#undef HAVE_UINTPTR_T
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if the system has the type 'unsigned long long int'. */
+#undef HAVE_UNSIGNED_LONG_LONG_INT
+
+/* define if your compiler has __attribute__ */
+#undef HAVE___ATTRIBUTE__
+
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
+#undef LT_OBJDIR
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* type assertion on Scheme object accessors */
+#undef SCM_ACCESSOR_ASSERT
+
+/* some SIOD compatible features */
+#undef SCM_COMPAT_SIOD
+
+/* emulating the buggy behaviors of SIOD */
+#undef SCM_COMPAT_SIOD_BUGS
+
+/* immutable list literals */
+#undef SCM_CONST_LIST_LITERAL
+
+/* immutable vector literals */
+#undef SCM_CONST_VECTOR_LITERAL
+
+/* debug mode */
+#undef SCM_DEBUG
+
+/* frame-separator on backtrace */
+#undef SCM_DEBUG_BACKTRACE_SEP
+
+/* values printing on backtrace */
+#undef SCM_DEBUG_BACKTRACE_VAL
+
+/* encoding-related functions debugging */
+#undef SCM_DEBUG_ENCODING
+
+/* macro and pattern matching debugging */
+#undef SCM_DEBUG_MACRO
+
+/* parser debugging */
+#undef SCM_DEBUG_PARSER
+
+/* port debugging */
+#undef SCM_DEBUG_PORT
+
+/* Define to 1 to adapt encoding.c to SigScheme. */
+#undef SCM_ENCODING_USE_WITH_SIGSCHEME
+
+/* Define to 1 to adapt scmport*.[hc] to SigScheme. */
+#undef SCM_SCMPORT_USE_WITH_SIGSCHEME
+
+/* recovery from failed SCM_ASSERT() */
+#undef SCM_SOFT_ASSERT
+
+/* strict check for form arguments */
+#undef SCM_STRICT_ARGCHECK
+
+/* all feasible encoding error checks */
+#undef SCM_STRICT_ENCODING_CHECK
+
+/* rejecting quote-less () */
+#undef SCM_STRICT_NULL_FORM
+
+/* strict R5RS conformance checks */
+#undef SCM_STRICT_R5RS
+
+/* strict check for R5RS top-level definitions */
+#undef SCM_STRICT_TOPLEVEL_DEFINITIONS
+
+/* rejecting quote-less vector literal */
+#undef SCM_STRICT_VECTOR_FORM
+
+/* 32bit_fixnum */
+#undef SCM_USE_32BIT_FIXNUM
+
+/* 32bit_scmref */
+#undef SCM_USE_32BIT_SCMREF
+
+/* 64bit_fixnum */
+#undef SCM_USE_64BIT_FIXNUM
+
+/* 64bit_scmref */
+#undef SCM_USE_64BIT_SCMREF
+
+/* showing backtrace on error */
+#undef SCM_USE_BACKTRACE
+
+/* R5RS characters */
+#undef SCM_USE_CHAR
+
+/* R5RS complex numbers (not implemented yet) */
+#undef SCM_USE_COMPLEX
+
+/* R5RS continuation */
+#undef SCM_USE_CONTINUATION
+
+/* all c[ad]+r procedures defined in R5RS */
+#undef SCM_USE_DEEP_CADRS
+
+/* storage dump (not implemented yet) */
+#undef SCM_USE_DUMP
+
+/* EUC-CN character encoding */
+#undef SCM_USE_EUCCN
+
+/* euccn_as_default */
+#undef SCM_USE_EUCCN_AS_DEFAULT
+
+/* EUC-JP character encoding */
+#undef SCM_USE_EUCJP
+
+/* eucjp_as_default */
+#undef SCM_USE_EUCJP_AS_DEFAULT
+
+/* EUC-KR character encoding */
+#undef SCM_USE_EUCKR
+
+/* euckr_as_default */
+#undef SCM_USE_EUCKR_AS_DEFAULT
+
+/* eval_c_string() of libsscm */
+#undef SCM_USE_EVAL_C_STRING
+
+/* intermediate format strings */
+#undef SCM_USE_FORMAT
+
+/* R5RS hygienic macros (experimental) */
+#undef SCM_USE_HYGIENIC_MACRO
+
+/* R5RS integer numbers */
+#undef SCM_USE_INT
+
+/* R5RS internal definitions */
+#undef SCM_USE_INTERNAL_DEFINITIONS
+
+/* intptr_scmref */
+#undef SCM_USE_INTPTR_SCMREF
+
+/* int_fixnum */
+#undef SCM_USE_INT_FIXNUM
+
+/* 'define-macro' syntactic closure */
+#undef SCM_USE_LEGACY_MACRO
+
+/* building libsscm */
+#undef SCM_USE_LIBSSCM
+
+/* R5RS 'load' */
+#undef SCM_USE_LOAD
+
+/* long_fixnum */
+#undef SCM_USE_LONG_FIXNUM
+
+/* multibyte_char */
+#undef SCM_USE_MULTIBYTE_CHAR
+
+/* null character in a middle of a string (experimental) */
+#undef SCM_USE_NULL_CAPABLE_STRING
+
+/* R5RS numbers */
+#undef SCM_USE_NUMBER
+
+/* number_io */
+#undef SCM_USE_NUMBER_IO
+
+/* R5RS ports */
+#undef SCM_USE_PORT
+
+/* R5RS promises */
+#undef SCM_USE_PROMISE
+
+/* R5RS quasiquotation */
+#undef SCM_USE_QUASIQUOTE
+
+/* R6RS characters (preliminary) */
+#undef SCM_USE_R6RS_CHARS
+
+/* named characters of R6RS (preliminary) */
+#undef SCM_USE_R6RS_NAMED_CHARS
+
+/* R5RS rational numbers (not implemented yet) */
+#undef SCM_USE_RATIONAL
+
+/* internal format which takes raw C values from va_list */
+#undef SCM_USE_RAW_C_FORMAT
+
+/* R5RS 'read' */
+#undef SCM_USE_READER
+
+/* R5RS real numbers (not implemented yet) */
+#undef SCM_USE_REAL
+
+/* the 'sscm' interactive shell */
+#undef SCM_USE_SHELL
+
+/* singlebyte_as_default */
+#undef SCM_USE_SINGLEBYTE_AS_DEFAULT
+
+/* Shift_JIS character encoding */
+#undef SCM_USE_SJIS
+
+/* sjis_as_default */
+#undef SCM_USE_SJIS_AS_DEFAULT
+
+/* SRFI-0 'cond-expand' */
+#undef SCM_USE_SRFI0
+
+/* SRFI-1 list library */
+#undef SCM_USE_SRFI1
+
+/* SRFI-2 'and-let*' */
+#undef SCM_USE_SRFI2
+
+/* SRFI-22 running scheme scripts on Unix (partial) */
+#undef SCM_USE_SRFI22
+
+/* SRFI-23 'error' */
+#undef SCM_USE_SRFI23
+
+/* SRFI-28 'format' */
+#undef SCM_USE_SRFI28
+
+/* SRFI-34 exception handling for programs */
+#undef SCM_USE_SRFI34
+
+/* SRFI-38 'write/ss' ('read/ss' is not provided) */
+#undef SCM_USE_SRFI38
+
+/* SRFI-43 vector library */
+#undef SCM_USE_SRFI43
+
+/* SRFI-48 'format' (superset of SRFI-28) */
+#undef SCM_USE_SRFI48
+
+/* SRFI-55 'require-extension' */
+#undef SCM_USE_SRFI55
+
+/* SRFI-6 basic string ports */
+#undef SCM_USE_SRFI6
+
+/* SRFI-60 integers as bits (partial) */
+#undef SCM_USE_SRFI60
+
+/* SRFI-69 basic hash tables */
+#undef SCM_USE_SRFI69
+
+/* SRFI-8 'receive' */
+#undef SCM_USE_SRFI8
+
+/* SRFI-9 defining record types */
+#undef SCM_USE_SRFI9
+
+/* SRFI-95 sorting and merging */
+#undef SCM_USE_SRFI95
+
+/* SigScheme-specific extensions */
+#undef SCM_USE_SSCM_EXTENSIONS
+
+/* SigScheme-specific 'format+' */
+#undef SCM_USE_SSCM_FORMAT_EXTENSION
+
+/* storage_compact */
+#undef SCM_USE_STORAGE_COMPACT
+
+/* storage_fatty */
+#undef SCM_USE_STORAGE_FATTY
+
+/* primary procedures of R5RS strings */
+#undef SCM_USE_STRING
+
+/* string_procedure */
+#undef SCM_USE_STRING_PROCEDURE
+
+/* 'syntax-case' (not implemented yet) */
+#undef SCM_USE_SYNTAX_CASE
+
+/* syntactic closure (not implemented yet) */
+#undef SCM_USE_UNHYGIENIC_MACRO
+
+/* UTF-8 character encoding */
+#undef SCM_USE_UTF8
+
+/* utf8_as_default */
+#undef SCM_USE_UTF8_AS_DEFAULT
+
+/* valuecons for efficient multiple values handling */
+#undef SCM_USE_VALUECONS
+
+/* R5RS vectors */
+#undef SCM_USE_VECTOR
+
+/* suppressing compiler warnings */
+#undef SCM_USE_WARNING_SUPPRESSOR
+
+/* R5RS 'write' and 'display' */
+#undef SCM_USE_WRITER
+
+/* The size of `char', as computed by sizeof. */
+#undef SIZEOF_CHAR
+
+/* The size of `double', as computed by sizeof. */
+#undef SIZEOF_DOUBLE
+
+/* The size of `float', as computed by sizeof. */
+#undef SIZEOF_FLOAT
+
+/* The size of `int', as computed by sizeof. */
+#undef SIZEOF_INT
+
+/* The size of `int16_t', as computed by sizeof. */
+#undef SIZEOF_INT16_T
+
+/* The size of `int32_t', as computed by sizeof. */
+#undef SIZEOF_INT32_T
+
+/* The size of `int64_t', as computed by sizeof. */
+#undef SIZEOF_INT64_T
+
+/* The size of `int8_t', as computed by sizeof. */
+#undef SIZEOF_INT8_T
+
+/* The size of `intmax_t', as computed by sizeof. */
+#undef SIZEOF_INTMAX_T
+
+/* The size of `intptr_t', as computed by sizeof. */
+#undef SIZEOF_INTPTR_T
+
+/* The size of `long', as computed by sizeof. */
+#undef SIZEOF_LONG
+
+/* The size of `long double', as computed by sizeof. */
+#undef SIZEOF_LONG_DOUBLE
+
+/* The size of `long long', as computed by sizeof. */
+#undef SIZEOF_LONG_LONG
+
+/* The size of `short', as computed by sizeof. */
+#undef SIZEOF_SHORT
+
+/* The size of `size_t', as computed by sizeof. */
+#undef SIZEOF_SIZE_T
+
+/* The size of `void*', as computed by sizeof. */
+#undef SIZEOF_VOIDP
+
+/* The size of `void *', as computed by sizeof. */
+#undef SIZEOF_VOID_P
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION
+
+/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
+   significant byte first (like Motorola and SPARC, unlike Intel). */
+#if defined AC_APPLE_UNIVERSAL_BUILD
+# if defined __BIG_ENDIAN__
+#  define WORDS_BIGENDIAN 1
+# endif
+#else
+# ifndef WORDS_BIGENDIAN
+#  undef WORDS_BIGENDIAN
+# endif
+#endif
+
+/* Define to 1 if it is needed to enable strcasecmp(3). */
+#if SCM_COMPILING_LIBSSCM
+#undef _BSD_SOURCE
+#endif
+
+/* Define to 200112L to enable posix_memalign(3). */
+#if SCM_COMPILING_LIBSSCM
+#undef _POSIX_C_SOURCE
+#endif
+
+/* Define for Solaris 2.5.1 so the uint32_t typedef from <sys/synch.h>,
+   <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
+   #define below would cause a syntax error. */
+#undef _UINT32_T
+
+/* Define for Solaris 2.5.1 so the uint64_t typedef from <sys/synch.h>,
+   <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
+   #define below would cause a syntax error. */
+#undef _UINT64_T
+
+/* Define for Solaris 2.5.1 so the uint8_t typedef from <sys/synch.h>,
+   <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
+   #define below would cause a syntax error. */
+#undef _UINT8_T
+
+/* Define to 500 to enable strdup(3). */
+#if SCM_COMPILING_LIBSSCM
+#undef _XOPEN_SOURCE
+#endif
+
+/* Define to 1 if type `char' is unsigned and you are not using gcc.  */
+#ifndef __CHAR_UNSIGNED__
+# undef __CHAR_UNSIGNED__
+#endif
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+#undef inline
+#endif
+
+/* Define to the type of a signed integer type of width exactly 16 bits if
+   such a type exists and the standard includes do not define it. */
+#undef int16_t
+
+/* Define to the type of a signed integer type of width exactly 32 bits if
+   such a type exists and the standard includes do not define it. */
+#undef int32_t
+
+/* Define to the type of a signed integer type of width exactly 64 bits if
+   such a type exists and the standard includes do not define it. */
+#undef int64_t
+
+/* Define to the type of a signed integer type of width exactly 8 bits if such
+   a type exists and the standard includes do not define it. */
+#undef int8_t
+
+/* Define to the widest signed integer type if <stdint.h> and <inttypes.h> do
+   not define. */
+#undef intmax_t
+
+/* Define to the type of a signed integer type wide enough to hold a pointer,
+   if such a type exists, and if the system does not define it. */
+#undef intptr_t
+
+/* Define to the equivalent of the C99 'restrict' keyword, or to
+   nothing if this is not supported.  Do not define if restrict is
+   supported directly.  */
+#undef restrict
+/* Work around a bug in Sun C++: it does not support _Restrict or
+   __restrict__, even though the corresponding Sun C compiler ends up with
+   "#define restrict _Restrict" or "#define restrict __restrict__" in the
+   previous line.  Perhaps some future version of Sun C++ will work with
+   restrict; if so, hopefully it defines __RESTRICT like Sun C does.  */
+#if defined __SUNPRO_CC && !defined __RESTRICT
+# define _Restrict
+# define __restrict__
+#endif
+
+/* Define to `unsigned int' if <sys/types.h> does not define. */
+#undef size_t
+
+/* Define to `int' if <sys/types.h> does not define. */
+#undef ssize_t
+
+/* Define to the type of an unsigned integer type of width exactly 16 bits if
+   such a type exists and the standard includes do not define it. */
+#undef uint16_t
+
+/* Define to the type of an unsigned integer type of width exactly 32 bits if
+   such a type exists and the standard includes do not define it. */
+#undef uint32_t
+
+/* Define to the type of an unsigned integer type of width exactly 64 bits if
+   such a type exists and the standard includes do not define it. */
+#undef uint64_t
+
+/* Define to the type of an unsigned integer type of width exactly 8 bits if
+   such a type exists and the standard includes do not define it. */
+#undef uint8_t
+
+/* Define to the widest unsigned integer type if <stdint.h> and <inttypes.h>
+   do not define. */
+#undef uintmax_t
+
+/* Define to the type of an unsigned integer type wide enough to hold a
+   pointer, if such a type exists, and if the system does not define it. */
+#undef uintptr_t
+
+/* Define to empty if the keyword `volatile' does not work. Warning: valid
+   code using `volatile' can become incorrect without. Disable with care. */
+#undef volatile
+
+
+/* FIXME: temporary solution */
+#include "config-old.h"
+
+#endif /* __SIGSCHEME_CONFIG_H */

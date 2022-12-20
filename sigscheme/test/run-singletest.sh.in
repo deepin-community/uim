@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SSCM="@abs_top_builddir@/src/sscm --system-load-path @abs_top_srcdir@/lib"
+
+cd @top_srcdir@ && $SSCM @abs_top_builddir@/$1

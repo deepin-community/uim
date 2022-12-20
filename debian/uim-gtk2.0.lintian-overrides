@@ -1,0 +1,6 @@
+uim-gtk2.0: binary-without-manpage usr/bin/uim-im-switcher-gtk
+uim-gtk2.0: binary-without-manpage usr/bin/uim-input-pad-ja
+uim-gtk2.0: binary-without-manpage usr/bin/uim-pref-gtk
+uim-gtk2.0: binary-without-manpage usr/bin/uim-toolbar-gtk
+uim-gtk2.0: binary-without-manpage usr/bin/uim-toolbar-gtk-systray
+

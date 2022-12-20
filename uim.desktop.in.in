@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+_Name=Input Method
+_Comment=Customize uim input method environment
+_Keywords=input;method;
+Exec=uim-pref-gtk
+Icon=@uim_pixmapsdir@/uim-icon.png
+Terminal=false
+Categories=Settings;X-GNOME-PersonalSettings;

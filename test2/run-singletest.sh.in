@@ -1,0 +1,5 @@
+#!/bin/sh
+
+UIM_SH="@abs_top_builddir@/uim/uim-sh"
+
+$UIM_SH @abs_builddir@/$1

@@ -1,0 +1,63 @@
+#!/bin/sh
+
+register_module_was_broken=false
+
+register_module() {
+    PKGNAME=$1
+    MODNAME=$2
+    QSTRING=$(dpkg-query -W -f='${Status}\n' $PKGNAME 2>/dev/null)
+    if [ $? = "1" ]
+    then
+        if $register_module_was_broken; then
+            uim-module-manager --unregister $MODNAME --path /var/lib/uim
+        fi
+        return 0
+    fi
+    echo $QSTRING | grep "not-installed" > /dev/null
+    if [ $? = "1" ]
+    then
+        uim-module-manager --register $MODNAME --path /var/lib/uim
+    fi
+}
+
+case "$1" in
+    configure)
+        if dpkg --compare-versions "$2" lt-nl "1:1.8.8-4+deb10u2.1" && \
+           dpkg --compare-versions "$2" gt "1:1.8.8-4"; then
+            # buster
+            register_module_was_broken=true
+        fi
+        if dpkg --compare-versions "$2" lt-nl "1:1.8.8-6.1~" && \
+           dpkg --compare-versions "$2" gt "1:1.8.8-5~"; then
+            # bullseye/sid
+            register_module_was_broken=true
+        fi
+
+	if which uim-module-manager >/dev/null 2>&1; then
+        register_module uim-anthy anthy-utf8
+        register_module uim-byeoru byeoru
+        register_module uim-ipa-x-sampa ipa-x-sampa
+        register_module uim-latin latin
+        register_module uim-latin elatin
+        register_module uim-look look
+        register_module uim-m17nlib m17nlib
+        register_module uim-pinyin pyload
+        register_module uim-skk skk
+        register_module uim-tcode tutcode
+        register_module uim-viqr viqr
+        register_module uim-mozc mozc
+        register_module uim-chewing chewing
+	fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.10" />
+<title>Global object handlings of SigScheme</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Global object handlings of SigScheme</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_about">1. About</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>SigScheme has portable mechanisms that control:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+global symbols hiding
+</p>
+</li>
+<li>
+<p>
+global variable to dynamically allocated variable conversion
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This document describes its necessity and usage.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_problems">2. The problems</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_global_symbol_conflict_with_other_libraries">2.1. Global symbol conflict with other libraries</h3>
+<div class="paragraph"><p>Since SigScheme uses semi-common <em>scm_</em> and <em>Scm</em> prefixes for exported
+symbols, it may conflict with other libraries if the client application is also
+directly or indirectly linked with another Scheme implementation such as
+libguile. This is a serious problem when implementing a fundamental library
+based on libsscm, such as libuim.</p></div>
+<div class="paragraph"><p>To avoid such conflict, many platforms provide symbol exportation control
+ability. For example, GNU ld and Windows DLL can handle it based on a optional
+file which contains the symbol information. And libtool provides an useful
+option <code>-export-symbols-regex</code> for such purpose to make the handlings
+platform-independent. However, unfortunately libtool does not ensure its
+portability. Currently supported platforms are considerably limited (at least
+on version 2.1a 2006-03-30) and some platforms seems that can never be
+supported.</p></div>
+<div class="paragraph"><p>Since primal portability is indispensable value of SigScheme to be being an
+useful embedded Scheme implementation, we cannot depend on such problematic
+toolchain-based symbol exportation control.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_platforms_that_lack_writable_static_data">2.2. Platforms that lack writable static data</h3>
+<div class="paragraph"><p>Some platforms such as BREW and some versions of Symbian OS lack writable
+static data capability. It means that no writable global variable can be used
+in SigScheme. But SigScheme do need various global data such as dynamic extent,
+symbol table, R5RS constant object holder and so on. So an alternative dynamic
+data store that can globally be accessed is needed.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_solution">3. Solution</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The two problems are resolved with two related mechanisms.</p></div>
+<div class="paragraph"><p>For the symbol conflict problem, an alternative special compilation method
+called <em>combined-source mode</em> is provided.</p></div>
+<div class="paragraph"><p>It combines all source code of SigScheme into single file, and makes all global
+objects static. So no symbols will be exposed. A client of libsscm can use this
+combined version of the library by including the file <code>sigscheme-combined.c</code>
+directly into a C/C++ source of the client. Once it included, all configured
+SigScheme features can be used as file-local code, and it can also be linked
+with other arbitrary objects via user-written wrapper.</p></div>
+<div class="paragraph"><p>And the writable static data problem is resolved with <em>aggregated global
+variables</em> mechanism works on the combined-source mode. When this feature is
+directed, all of the global variables including static ones are aggregated into
+a single big struct, and allocated to platform-specific global store such as
+thread local storage or a member variable of application instance. The
+accessing method to the variables is abstracted by some macros, and any
+variable can be accessed as if ordinary variable.</p></div>
+<div class="paragraph"><p>Finally, a variant configuration of the two mechanisms is also available for
+the platforms lacking writable static data. It is combined, global variables
+aggregated, but exports SigScheme&#8217;s API symbols. This configuration is supposed
+to provide libsscm on such platforms.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_combined_source_mode_usage_for_libsscm_users">4. Combined-source mode usage for libsscm users</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_preparation">4.1. Preparation</h3>
+<div class="paragraph"><p>The combined-source version of the library is optional and not built by
+default. Instruct as follows to build it.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ make -C src combined</code></pre>
+</div></div>
+<div class="paragraph"><p>It results the file <code>src/sigscheme-combined.c</code>. Since the generated code
+reflects user-configuration, it must be rebuilt every after <code>configure</code>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_compilation">4.2. Compilation</h3>
+<div class="paragraph"><p>Include the <code>sigscheme-combined.c</code> directly into a C/C++ code, as following
+example. Ordinary separated compilation and linking does not work because of
+its "all global objects made static" nature.</p></div>
+<div class="listingblock">
+<div class="title">a C code using combined-source mode of the SigScheme</div>
+<div class="content">
+<pre><code>#include "sigscheme-combined.c"
+
+#include <config.h> /* client's own config.h */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+#include "my-header.h"
+
+static ScmObj
+my_function(int val)
+{
+    return SCM_MAKE_INT(val * 2);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Requirements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>sigscheme-combined.c</code> must be included prior to client&#8217;s own <code>config.h</code>
+    since many autoconf-defined macros of SigScheme must appropriately be
+    undefined in the file to avoid conflicting with the client-side ones
+</p>
+</li>
+<li>
+<p>
+Add include path to <code>sigscheme/include</code> and <code>sigscheme/src</code> since the
+    <code>sigscheme-combined.c</code> includes various source files in the directories
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Other notes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The client code can use all of public SigScheme API defined in
+    <code>sigscheme.h</code>, <code>scmint.h</code>, <code>encoding.h</code>, <code>global.h</code> and SigScheme&#8217;s own
+    <code>condig.h</code>. Any other interfaces should not be used even if accessible
+</p>
+</li>
+<li>
+<p>
+All of SigScheme&#8217;s internal macros are undefined and hidden at the end of
+    <code>sigscheme-combined.c</code> inclusion, to reduce namespace pollution
+</p>
+</li>
+<li>
+<p>
+Many internal variables and functions of SigScheme are exposed to the
+    client code. Be careful of conflict
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_combined_source_mode_with_exported_api_symbols">5. Combined-source mode with exported API symbols</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>To export SigScheme API symbols against the combined-source mode, define
+<code>SCM_EXPORT_API</code> to 1 prior to including the <code>sigscheme-combined.c</code>, as
+follows. See <code>src/dllentry.c</code> as real example.</p></div>
+<div class="listingblock">
+<div class="title">instructs that export SigScheme API</div>
+<div class="content">
+<pre><code>#define SCM_EXPORT_API 1
+#include "sigscheme-combined.c"</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_non_static_functions_handling_for_sigscheme_developers">6. Non-static functions handling for SigScheme developers</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>To control global symbol exportation, any non-static function declaration and
+definition need little modification. For both prototype declaration and actual
+definition, prepend <code>SCM_EXPORT</code> to the function. There is no distinction
+between public API and library-internal API on the exportation control. Use
+<code>SCM_EXPORT</code> for both type of functions.</p></div>
+<div class="paragraph"><p>The <code>SCM_EXPORT</code> macro is replaced with <code>static</code> when the combined-source mode
+without <code>SCM_EXPORT_API</code>.</p></div>
+<div class="listingblock">
+<div class="title">symbol exportation control for functions</div>
+<div class="content">
+<pre><code>/* declaration */
+SCM_EXPORT void scm_set_lib_path(const char *path);
+SCM_EXPORT ScmObj scm_p_load(ScmObj filename);
+
+/* definition */
+SCM_EXPORT void
+scm_set_lib_path(const char *path)
+{
+    ...
+}
+
+SCM_EXPORT ScmObj
+scm_p_load(ScmObj filename)
+{
+    ...
+}</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_global_variables_handling_for_sigscheme_developers">7. Global variables handling for SigScheme developers</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The aggregated variables mechanism is mainly provided for SigScheme developers
+and used to write libsscm. All global variables used in SigScheme must be
+written with this mechanism to keep portable to the embedded
+platforms. Although it tries to keep original usage of the global variables,
+some rewrite of source codes declaring and defining the variables are needed
+because of the limitation of C macro ability.</p></div>
+<div class="sect2">
+<h3 id="_constant_global_variables">7.1. Constant global variables</h3>
+<div class="paragraph"><p>Constant global variables can safely be used in all platforms regardless of
+whether static or not. But a little modification of <code>extern</code> declaration is
+needed for the combined-source mode treatment.</p></div>
+<div class="paragraph"><p>Be careful about all part of the variables are certainly qualified as
+const.</p></div>
+<div class="listingblock">
+<div class="title">a constant global variables declaration and definition</div>
+<div class="content">
+<pre><code>/* declaration */
+extern const char *const names[];
+
+/* definition */
+const char *const names[] = {
+  "foo", "bar", NULL
+};
+
+static const char *const other_names[] = {
+  "baz", "quux", NULL
+};</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">rewritten declaration and definition</div>
+<div class="content">
+<pre><code>/* declaration */
+SCM_EXTERN(const char *const names[]);
+
+/* definition */
+const char *const names[] = {
+  "foo", "bar", NULL
+};
+
+static const char *const other_names[] = {
+  "baz", "quux", NULL
+};</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_writable_extern_variables">7.2. Writable extern variables</h3>
+<div class="paragraph"><p>Writable and exported global variables need more complex rewriting.</p></div>
+<div class="listingblock">
+<div class="title">a writable extern variables declaration and definition</div>
+<div class="content">
+<pre><code>/* declaration */
+extern int foo bar;
+extern ScmObj obj_a, obj_b;
+extern void (*func)(void);
+
+/* definition */
+int foo bar;
+ScmObj obj_a, obj_b;
+void (*func)(void);</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">rewritten declaration and definition</div>
+<div class="content">
+<pre><code>/* declaration */
+SCM_GLOBAL_VARS_BEGIN(srfi99);
+int foo bar;
+ScmObj obj_a, obj_b;
+void (*func)(void);
+SCM_GLOBAVARS_END(srfi99);
+#define foo   SCM_GLOBAL_VAR(srfi99, foo)
+#define bar   SCM_GLOBAL_VAR(srfi99, bar)
+#define obj_a SCM_GLOBAL_VAR(srfi99, obj_a)
+#define obj_b SCM_GLOBAL_VAR(srfi99, obj_b)
+#define func  SCM_GLOBAL_VAR(srfi99, func)
+
+/* definition */
+SCM_DEFINE_EXPORTED_VARS(srfi99);</code></pre>
+</div></div>
+<div class="paragraph"><p>The identifier <em>srfi99</em> in above example specifies a namespace and
+aggregational unit which the variables are placed into. It is recommended that
+the name is taken from the filename which the definition is placed.</p></div>
+<div class="paragraph"><p>The macros defined immediately after the SCM_GLOBAVARS_END() are conventional
+accessors for the variables. The proper accessing method for the variables is
+SCM_GLOBAL_VAR(namespace, varname), but it unacceptably bothers code
+writing. So such macros should be defined. The macros make rewriting of codes
+operate on the variables unneeded. The SCM_GLOBAL_VAR() allows being accessed
+as lvalue.</p></div>
+<div class="paragraph"><p>But since it may obviously cause unexpected replacement if any of the names are
+appeared as a non-global-variable object in a code, such as local variable or
+struct member. The macro definition may affect to all source files even if the
+header defines the macro is not included by a file, because of the unified
+translation unit formed by the combined-source. To avoid such unwanted
+replacement, The variable names should be prefixed to be unique over all
+sources.</p></div>
+<div class="listingblock">
+<div class="title">prefixing each variables is recommended</div>
+<div class="content">
+<pre><code>/* declaration */
+SCM_GLOBAL_VARS_BEGIN(srfi99);
+int scm_foo scm_bar;
+ScmObj scm_obj_a, scm_obj_b;
+void (*scm_func)(void);
+SCM_GLOBAVARS_END(srfi99);
+#define scm_foo   SCM_GLOBAL_VAR(srfi99, scm_foo)
+#define scm_bar   SCM_GLOBAL_VAR(srfi99, scm_bar)
+#define scm_obj_a SCM_GLOBAL_VAR(srfi99, scm_obj_a)
+#define scm_obj_b SCM_GLOBAL_VAR(srfi99, scm_obj_b)
+#define scm_func  SCM_GLOBAL_VAR(srfi99, scm_func)
+
+/* definition */
+SCM_DEFINE_EXPORTED_VARS(srfi99);</code></pre>
+</div></div>
+<div class="paragraph"><p>Finally, conditional compilation is allowed even if in the declaration.</p></div>
+<div class="listingblock">
+<div class="title">conditional compilation is allowed</div>
+<div class="content">
+<pre><code>/* declaration */
+SCM_GLOBAL_VARS_BEGIN(srfi99);
+int scm_foo scm_bar;
+#if SCM_USE_FOO
+ScmObj scm_obj_a, scm_obj_b;
+void (*scm_func)(void);
+#endif
+SCM_GLOBAVARS_END(srfi99);
+#define scm_foo   SCM_GLOBAL_VAR(srfi99, scm_foo)
+#define scm_bar   SCM_GLOBAL_VAR(srfi99, scm_bar)
+#define scm_obj_a SCM_GLOBAL_VAR(srfi99, scm_obj_a)
+#define scm_obj_b SCM_GLOBAL_VAR(srfi99, scm_obj_b)
+#define scm_func  SCM_GLOBAL_VAR(srfi99, scm_func)
+
+/* definition */
+SCM_DEFINE_EXPORTED_VARS(srfi99);</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_static_variables">7.3. Static variables</h3>
+<div class="paragraph"><p>Static variables handling is similar to external one, but some additional
+treatment is needed.</p></div>
+<div class="listingblock">
+<div class="title">a static variables definition</div>
+<div class="content">
+<pre><code>static int foo bar;
+static ScmObj obj_a, obj_b;
+static void (*func)(void);</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">rewritten definition</div>
+<div class="content">
+<pre><code>SCM_GLOBAL_VARS_BEGIN(static_srfi99);
+#define static
+static int l_foo l_bar;
+static ScmObj l_obj_a, l_obj_b;
+static void (*l_func)(void);
+#undef static
+SCM_GLOBAL_VARS_END(static_srfi99);
+#define l_foo   SCM_GLOBAL_VAR(static_srfi99, l_foo)
+#define l_bar   SCM_GLOBAL_VAR(static_srfi99, l_bar)
+#define l_obj_a SCM_GLOBAL_VAR(static_srfi99, l_obj_a)
+#define l_obj_b SCM_GLOBAL_VAR(static_srfi99, l_obj_b)
+#define l_func  SCM_GLOBAL_VAR(static_srfi99, l_func)
+SCM_DEFINE_STATIC_VARS(static_srfi99);</code></pre>
+</div></div>
+<div class="paragraph"><p>The technical difference to external one is:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use SCM_DEFINE_STATIC_VARS() instead of SCM_DEFINE_EXPORTED_VARS() to
+    define declared variables
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>And some more conventions:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Enclose the declaration with <code>#define static</code> and <code>#undef static</code> to keep
+    indicating that the variables are static
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+The <code>static</code> specifier is technically not allowed here
+</p>
+</li>
+<li>
+<p>
+The <code>#define</code> and <code>#undef</code> must be placed inside
+      <code>SCM_GLOBAL_VARS_{BEGIN,END}()</code>. Placing outside of them makes the
+      declaration broken
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+The namespace should be prefixed with <code>static_</code>
+</p>
+</li>
+<li>
+<p>
+The variable names should be prefixed with <code>l_</code> (stands for <em>local</em>)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_common_restrictions">7.4. Common restrictions</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Reserved namespaces
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>dummy</code>
+</p>
+</li>
+<li>
+<p>
+<code>dummy_*</code>
+</p>
+</li>
+<li>
+<p>
+<code>instance</code>
+</p>
+</li>
+<li>
+<p>
+<code>instance_*</code>
+</p>
+</li>
+<li>
+<p>
+<code>aggregated</code>
+</p>
+</li>
+<li>
+<p>
+<code>aggregated_*</code>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_initialization_and_finalization">7.5. Initialization and finalization</h3>
+<div class="paragraph"><p>The aggregated variables <strong>MUST</strong> be initialized with <code>SCM_GLOBAL_VARS_INIT()</code>
+prior to being used. Before the initialization, accessing the variables is
+completely invalid. It is not only containing unspecified value but may cause
+crash on some platforms since the storage is not allocated yet.</p></div>
+<div class="listingblock">
+<div class="title">initialization of a set of variables</div>
+<div class="content">
+<pre><code>void
+scm_srfi99_init(void)
+{
+    SCM_GLOBAL_VARS_INIT(srfi99);
+    SCM_GLOBAL_VARS_INIT(static_srfi99);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>After the initialization, the variables contained in the namespace specified by
+the <code>SCM_GLOBAL_VARS_INIT()</code> are allocated and zero-cleared. If you want that
+an variable is initialized, assign the value by hand after the
+initialization. Load-time initialization is not allowed and technically does
+not work.</p></div>
+<div class="listingblock">
+<div class="title">initialization is not allowed (and does not work)</div>
+<div class="content">
+<pre><code>SCM_GLOBAL_VARS_BEGIN(static_srfi99);
+#define static
+static int l_foo = 100;
+#undef static
+SCM_GLOBAL_VARS_END(static_srfi99);</code></pre>
+</div></div>
+<div class="paragraph"><p>The by-function initialization ensures that cyclic finalization &#8594;
+re-initialization loop works properly without careful initial value treatment
+of global variables. It is helpful to ensure that SigScheme is
+re-initialization safe.</p></div>
+<div class="paragraph"><p>Finalization macro is also provided and usable. But since it is currently empty
+expression on all platforms, and most code modules do not have finalization
+function, no finalization is performed for global variables to keep footprint
+shrunk. But the macro should be added if a code module has finalization
+function.</p></div>
+<div class="listingblock">
+<div class="title">finalization of the variables</div>
+<div class="content">
+<pre><code>void
+scm_srfi99_fin(void)
+{
+    SCM_GLOBAL_VARS_FIN(srfi99);
+    SCM_GLOBAL_VARS_FIN(static_srfi99);
+}</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2015-05-30 22:08:55 JST
+</div>
+</div>
+</body>
+</html>
