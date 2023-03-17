@@ -1,9 +1,11 @@
-uim (1:1.8.8-4+deb10u5+u001+deepin1) UNRELEASED; urgency=medium
+uim (1:1.8.8-4deepin1) unstable; urgency=medium
 
   * update
   * update
 
- -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 08 Dec 2022 15:55:03 +0800
+  * 
+
+ -- Yutao Meng <mengyutao@uniontech.com>  Fri, 17 Mar 2023 13:28:21 +0800
 
 uim (1:1.8.8-4+deb10u5) buster; urgency=medium
 
