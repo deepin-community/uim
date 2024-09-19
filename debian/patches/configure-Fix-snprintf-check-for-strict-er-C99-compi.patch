@@ -1,0 +1,33 @@
+From 99fd890fa601b81ff99e5e0f1977fe309f56b90e Mon Sep 17 00:00:00 2001
+From: Florian Weimer <fweimer@redhat.com>
+Date: Wed, 30 Nov 2022 00:48:49 +0100
+Subject: [PATCH] configure: Fix snprintf check for strict(er) C99 compilers
+ (#187)
+
+C99 removed support for implicit function declarations. The test calls
+the undeclared exit function, so it may fail incorrectly with C99
+compilers. Return from main instead to report the test result.
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 56fb1dd4..e115da3a 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -593,11 +593,11 @@ str = gai_strerror(0);],[
+ if test "x$ac_cv_func_snprintf" = xyes; then
+ 	AC_MSG_CHECKING([whether snprintf correctly terminates long strings])
+ 	AC_RUN_IFELSE(
+ 		[AC_LANG_SOURCE([[
+ #include <stdio.h>
+-int main(void){char b[5];snprintf(b,5,"123456789");exit(b[4]!='\0');}
++int main(void){char b[5];snprintf(b,5,"123456789");return b[4]!='\0';}
+ 		]])],
+ 		[AC_MSG_RESULT(yes)],
+ 		[
+ 			AC_MSG_RESULT(no)
+ 			AC_DEFINE(BROKEN_SNPRINTF, 1,
+-- 
+2.43.0
+

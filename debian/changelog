@@ -1,49 +1,114 @@
-uim (1:1.8.8-4deepin1) unstable; urgency=medium
-
-  * update
-  * update
-
-  * 
-
- -- Yutao Meng <mengyutao@uniontech.com>  Fri, 17 Mar 2023 13:28:21 +0800
-
-uim (1:1.8.8-4+deb10u5) buster; urgency=medium
-
-  * Non-maintainer upload.
-  * libuim-data: Copy Breaks from uim-data as the contents will be temporarily
-    unavailable during the transition to uim-data.  (Closes: #988275)
-
- -- Andreas Beckmann <anbe@debian.org>  Mon, 10 May 2021 11:26:03 +0200
-
-uim (1:1.8.8-4+deb10u4) buster; urgency=medium
-
-  * Non-maintainer upload.
-  * libuim-data: Perform symlink_to_dir conversion of
-    /usr/share/doc/libuim-data in the resurrected package for clean upgrades
-    from stretch.  (Closes: #985352)
-
- -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Mar 2021 15:29:59 +0100
-
-uim (1:1.8.8-4+deb10u3) buster; urgency=medium
+uim (1:1.8.8-9.5) unstable; urgency=medium
 
   * Non-maintainer upload.
 
-  [ NOKUBI Takatsugu ]
-  * d/libuim-data.postint: add uim-mozc (See #939588)
+  [ Dmitry Shachnev ]
+  * Make libuim8 break old versions of uim, because uim-module-manager used
+    the internal symbols which disappeared with glibc 2.38. Closes: #1073828
 
-  [ HIGUCHI Daisuke (VDR dai) ]
-  * d/libuim-data.postinst: add uim-chewing
+  [ Andreas Metzler ]
+  * Tighten all deps of binary-any packages on libuim8 to ${binary:Version}.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 29 Jun 2024 12:25:06 +0300
+
+uim (1:1.8.8-9.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Andreas Metzler ]
+  * Ignore internal symbols in debian/libuim8.symbols. Closes: #1070389
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 14 May 2024 23:30:24 +0300
+
+uim (1:1.8.8-9.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix ./configure related FTBFS with -Werror=implicit-function-declaration.
+    Closes: #1066433
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 24 Mar 2024 10:52:54 +0100
+
+uim (1:1.8.8-9.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Build with -O1 to workaround #1019974.
+
+ -- Adrian Bunk <bunk@debian.org>  Tue, 04 Oct 2022 15:38:11 +0300
+
+uim (1:1.8.8-9.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * I finally lost my motivation then stepped down uim's maintainer.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sun, 26 Jun 2022 23:40:31 +0900
+
+uim (1:1.8.8-9) unstable; urgency=medium
+
+  * drop to register anthy (EUC-JP) again (Closes: #953616).
+    but you can still use anthy (EUC-JP). if you want to use or stop using
+    anthy (EUC-JP), you run uim-module-manager command with root privilege.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sat, 27 Feb 2021 11:40:47 +0900
+
+uim (1:1.8.8-8) unstable; urgency=medium
 
   [ YOSHINO Yoshihito ]
+  * uim-anthy: prefer UTF-8 module (Closes: #983370)
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 23 Feb 2021 12:33:54 +0900
+
+uim (1:1.8.8-7) unstable; urgency=medium
+
+  [ NOKUBI Takatsugu ]
+  * d/p/disable-composer-test.patch: add the patch to skip composer-test.
+    (Closes: #973459)
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * d/p/replace_obsolete_since_emacs22.1.patch: Replace
+    process-kill-without-query with set-process-query-on-exit-flag
+    (Closes: #977397, #977257)
+  * resurrect anthy for EUC-JP (Closes: #953616)
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 22 Dec 2020 21:07:53 +0900
+
+uim (1:1.8.8-6.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
   * d/libuim-data.postinst: unregister not-installed modules (Closes: #945344).
     The previous upload to fix #939588 caused regression, which has
     accidentally registered some not-installed modules.
 
  -- YOSHINO Yoshihito <yy.y.ja.jp@gmail.com>  Sun, 12 Jan 2020 19:42:26 +0900
 
-uim (1:1.8.8-4+deb10u2) buster; urgency=medium
+uim (1:1.8.8-6) unstable; urgency=medium
 
   [ HIGUCHI Daisuke (VDR dai) ]
+  * d/control: depends emacs instead of emacs24 (Closes: #942300)
+    - patch created by Gianfranco Costamagna <locutusofborg@debian.org>, thanks.
+  * d/control: set Rules-Requires-Root: as no.
+  * bump up Standards-Version 4.4.1.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 15 Oct 2019 14:16:44 +0900
+
+uim (1:1.8.8-5) unstable; urgency=medium
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * d/control: Bump debhelper compatibility level to 12 and
+    use debhelper-compat instead of d/compat
+  * bump up Standards-Version 4.4.0.
+  * d/*.symbols: eliminate lintian warning:
+    symbols-file-missing-build-depends-package-field
+  * d/uim.lintian-overrides: override lintian warning:
+    package-contains-documentation-outside-usr-share-doc
+  * d/*.lintian-overrides: update lintian-overrides:
+    spelling-error-in-copyright
+  * d/rules: eliminate lintian warning:
+    debug-symbol-migration-possibly-complete
+  * d/not-installed: new file, mute dh_missing.
+  * d/uim-plugins.lintian-overrides: set lintian override:
+    library-not-linked-against-libc
+    usr/lib/*/uim/plugin/libuim-custom-enabler.so does not have NEEDED libc.so,
+    but it is plugin.
   * resurrect libuim-data as a transitional package (Closes: #939588).
     After upgrading from stretch to buster, if purging libuim-data,
     its postrm script deletes /var/lib/uim/*.scm files required by uim.
@@ -54,7 +119,7 @@ uim (1:1.8.8-4+deb10u2) buster; urgency=medium
     change the description.
   * d/libuim-data.postint: re-register all modules, fix #939588
 
- -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 12 Sep 2019 00:08:30 +0900
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sun, 22 Sep 2019 00:33:18 +0900
 
 uim (1:1.8.8-4) unstable; urgency=medium
 

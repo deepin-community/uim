@@ -1,1 +1,2 @@
-uim-plugins: spelling-error-in-copyright permit to permit one to
+uim-plugins: spelling-error-in-copyright "permit to" "permit one to"
+uim-plugins: library-not-linked-against-libc usr/lib/*/uim/plugin/libuim-custom-enabler.so

@@ -6,7 +6,6 @@ LIBUIM_SYSTEM_SCM_FILES="/usr/share/sigscheme/lib"
 LIBUIM_SCM_FILES="/usr/share/uim"
 
 for i in \
-	test-composer.scm \
 	test-light-record.scm \
 	test-template.scm \
 	test-trec.scm \
