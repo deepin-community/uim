@@ -1,23 +1,20 @@
 #!/bin/sh
 
+set -e
+
 register_module_was_broken=false
 
 register_module() {
     PKGNAME=$1
     MODNAME=$2
-    QSTRING=$(dpkg-query -W -f='${Status}\n' $PKGNAME 2>/dev/null)
-    if [ $? = "1" ]
-    then
+    QSTRING=$(dpkg-query -W -f='${Status}\n' $PKGNAME 2>/dev/null) || {
         if $register_module_was_broken; then
             uim-module-manager --unregister $MODNAME --path /var/lib/uim
         fi
         return 0
-    fi
-    echo $QSTRING | grep "not-installed" > /dev/null
-    if [ $? = "1" ]
-    then
-        uim-module-manager --register $MODNAME --path /var/lib/uim
-    fi
+    }
+    echo $QSTRING | grep "not-installed" > /dev/null && return 0
+    uim-module-manager --register $MODNAME --path /var/lib/uim
 }
 
 case "$1" in
@@ -59,5 +56,7 @@ case "$1" in
         exit 1
     ;;
 esac
+
+#DEBHELPER#
 
 exit 0

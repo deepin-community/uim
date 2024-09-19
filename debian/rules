@@ -8,6 +8,9 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
+# workaround for #1019974
+export DEB_CFLAGS_MAINT_APPEND += -O1
+
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
@@ -25,7 +28,7 @@ confflags := \
 
 confflags += \
 	--with-fep \
-	--without-anthy \
+	--with-anthy \
 	--with-anthy-utf8 \
 	--with-m17nlib \
 	--with-x \
@@ -83,9 +86,6 @@ override_dh_link:
 		var/lib/uim/loader.scm \
 		usr/share/uim/loader.scm
 	dh_link
-
-override_dh_strip:
-	dh_strip --ddeb-migration='uim-dbg (<< 1:1.8.1-15~)'
 
 override_dh_makeshlibs:
 	dh_makeshlibs \

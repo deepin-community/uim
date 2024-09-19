@@ -1,4 +1,5 @@
 libuim-scm.so.0 libuim-scm0 #MINVER#
+* Build-Depends-Package: libuim-dev
  uim_scm_array2list@Base 1:1.5.7
  uim_scm_array2vector@Base 1:1.5.7
  uim_scm_c_bool@Base 1:1.5.7

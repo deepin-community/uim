@@ -1,9 +1,8 @@
 Source: uim
 Section: libs
 Priority: optional
-Maintainer: HIGUCHI Daisuke (VDR dai) <dai@debian.org>
-Uploaders: NOKUBI Takatsugu <knok@daionet.gr.jp>
-Build-Depends: debhelper (>= 11~),
+Maintainer: NOKUBI Takatsugu <knok@daionet.gr.jp>
+Build-Depends: debhelper-compat (= 12),
 	autoconf,
 	automake,
 	intltool,
@@ -30,17 +29,19 @@ Build-Depends: debhelper (>= 11~),
 	qtbase5-private-dev,
 	libqt5x11extras5-dev,
 	x11proto-core-dev
-Standards-Version: 4.1.4
+Standards-Version: 4.4.1
 Homepage: https://github.com/uim/uim/wiki
 Vcs-Git: https://salsa.debian.org/debian/uim.git
 Vcs-Browser: https://salsa.debian.org/debian/uim
+Rules-Requires-Root: no
 
 Package: uim
 Section: utils
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
-	uim-plugins (>= ${source:Version})
+	libuim8 (= ${binary:Version}),
+	uim-plugins (= ${binary:Version})
 Pre-Depends: dpkg (>= 1.15.7.2),
 	uim-data (>= ${source:Version})
 Breaks: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
@@ -73,7 +74,8 @@ Package: uim-plugins
 Section: utils
 Architecture: any
 Multi-Arch: same
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Breaks: libuim-plugins (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
 	uim-anthy (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Replaces: libuim-plugins (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
@@ -126,23 +128,14 @@ Package: libuim-data
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Architecture: all
 Section: oldlibs
-Breaks: uim-anthy (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-m17nlib (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-byeoru (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-latin (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-pinyin (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-viqr (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-ipa-x-sampa (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-look (<< 1:1.8.6+gh20161003.0.d63dadd-5~),
-	uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Description: transitional package for uim-data
  This is a transitional package. It will be removed next release.
 
 Package: libuim8
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Breaks: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
-Replaces: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
+Breaks: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~), uim (<< 1:1.8.8-9.4~)
+Replaces: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~), uim (<< 1:1.8.8-9.4~)
 Multi-Arch: same
 Description: Universal Input Method - uim library
  Uim is an input method module library which supports various scripts and can
@@ -155,7 +148,8 @@ Description: Universal Input Method - uim library
 
 Package: libuim-scm0
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Breaks: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Replaces: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Multi-Arch: same
@@ -170,7 +164,8 @@ Description: Universal Input Method - uim-scm API library
 
 Package: libuim-custom2
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Breaks: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Replaces: uim-common (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Multi-Arch: same
@@ -206,6 +201,7 @@ Section: x11
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim-gtk2.0-immodule (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version})
@@ -222,7 +218,8 @@ Package: uim-gtk2.0-immodule
 Section: x11
 Architecture: any
 Multi-Arch: same
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Replaces: uim-gtk2.0 (<<1:1.8.6+gh20161003.0.d63dadd-5~)
 Breaks: uim-gtk2.0 (<<1:1.8.6+gh20161003.0.d63dadd-5~)
 Description: Universal Input Method - GTK+2.x IM-module
@@ -240,6 +237,7 @@ Section: x11
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim-gtk3-immodule (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version})
@@ -256,7 +254,8 @@ Package: uim-gtk3-immodule
 Section: x11
 Architecture: any
 Multi-Arch: same
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Breaks: uim-gtk3 (<<1:1.8.6+gh20161003.0.d63dadd-5~)
 Replaces: uim-gtk3 (<<1:1.8.6+gh20161003.0.d63dadd-5~)
 Description: Universal Input Method - GTK+3.x IM module
@@ -274,6 +273,7 @@ Section: x11
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim-qt5-immodule (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version})
@@ -291,7 +291,8 @@ Package: uim-qt5-immodule
 Section: x11
 Architecture: any
 Multi-Arch: same
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version})
 Breaks: uim-qt5 (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Replaces: uim-qt5 (<< 1:1.8.6+gh20161003.0.d63dadd-5~)
 Description: Universal Input Method - Qt 5.x IM module
@@ -308,6 +309,7 @@ Section: x11
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version})
 Suggests: uim-gtk2.0, uim-gtk3, uim-qt5
@@ -326,6 +328,7 @@ Section: utils
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version}),
 Description: Universal Input Method - front end processor
@@ -396,9 +399,10 @@ Section: lisp
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${shlibs:Depends},
+	libuim8 (= ${binary:Version}),
 	uim (>= ${source:Version}),
 	uim-data (>= ${source:Version}),
-	emacs24 | xemacs21-mule | xemacs21-mule-canna-wnn | emacsen
+	emacs | xemacs21-mule | xemacs21-mule-canna-wnn | emacsen
 Description: Universal Input Method - Emacs front end
  Uim is an input method module library which supports various scripts and can
  act as a front end for a range of input methods, including Anthy, Canna,

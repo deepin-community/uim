@@ -1,4 +1,6 @@
 libuim.so.8 libuim8 #MINVER#
+* Build-Depends-Package: libuim-dev
+ (regex|optional)"^uim_internal_" 1:1.7.0
  uim_asprintf@Base 1:1.7.0
  uim_calloc@Base 1:1.5.7
  uim_candidate_free@Base 1:1.5.7
@@ -68,10 +70,6 @@ libuim.so.8 libuim8 #MINVER#
  uim_init_rk_subrs@Base 1:1.5.7
  uim_init_util_subrs@Base 1:1.5.7
  uim_input_string@Base 1:1.5.7
- uim_internal_getpeereid@Base 1:1.7.0
- uim_internal_strlcat@Base 1:1.7.0
- uim_internal_strlcpy@Base 1:1.7.0
- uim_internal_strtonum@Base 1:1.7.0
  uim_ipc_open_command@Base 1:1.5.7
  uim_ipc_open_command_with_option@Base 1:1.5.7
  uim_ipc_send_command@Base 1:1.5.7

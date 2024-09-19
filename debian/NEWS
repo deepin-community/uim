@@ -1,3 +1,23 @@
+uim (1:1.8.8-8) unstable; urgency=medium
+
+  drop to register anthy (EUC-JP) again. but you can still use anthy (EUC-JP).
+  if you want to use anthy (EUC-JP), you run below command with root privilege.
+
+    uim-module-manager --register anthy --path /var/lib/uim
+
+  if you want to stop using anthy (EUC-JP), you run below command with root
+  privilege.
+
+    uim-module-manager --unregister anthy --path /var/lib/uim
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sat, 27 Feb 2021 11:33:18 +0900
+
+uim (1:1.8.8-7) unstable; urgency=medium
+
+  resurrect anthy (EUC-JP). but please use anthy-utf8 instead of it.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 22 Dec 2020 21:07:53 +0900
+
 uim (1:1.8.6+gh20161003.0.d63dadd-5) unstable; urgency=medium
 
   drop applet packages.
